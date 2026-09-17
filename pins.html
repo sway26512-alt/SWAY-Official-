@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SWAY | Pins & Clips</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: white;
+            color: black;
+        }
+
+        h1 {
+            font-size: 50px;
+            font-weight: bold;
+        }
+
+        h2 {
+            font-size: 28px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            background-color: black;
+            color: white;
+            border-radius: 30px;
+            padding: 10px 15px;
+            font-size: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .navbar a {
+            color: #F5F1E8;
+            padding: 10px;
+            text-decoration: none;
+        }
+
+        .navbar a:visited {
+            color: #F5F1E8;
+        }
+
+        .navbar a:hover {
+            color: #FFE5A0;
+        }
+
+        .navbar ul {
+            text-decoration: none;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin: 0;
+            padding: 0;
+            flex: 1;
+        }
+
+        .navbar li {
+            flex: 0 0 auto;
+        }
+
+        .logo {
+            display: block;
+            flex: 0 0 160px;
+            width: 160px;
+            height: 60px;
+            padding: 0 !important;
+            margin: 0;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .whatsapp-btn {
+            flex: 0 0 auto;
+            color: black !important;
+            background-color: #D4AF37;
+            padding: 10px 16px !important;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: bold;
+            margin: 0;
+            white-space: nowrap;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #F5F1E8;
+            color: black !important;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            background-image: url("clips hero.png");
+            height: 330px;
+            margin-top: 26px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            border-radius: 5px;
+        }
+
+        /* =========================
+           PRODUCTS
+        ========================= */
+
+        .products {
+            padding: 40px 30px;
+            text-align: center;
+            background-color: rgb(245, 243, 238);
+        }
+
+        .products h2 {
+            margin-bottom: 30px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 25px;
+            max-width: 1350px;
+            margin: auto;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            text-align: center;
+            padding-bottom: 20px;
+            min-width: 0;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 360px;
+            object-fit: contain;
+            display: block;
+            background-color: white;
+        }
+
+        .product-card h3 {
+            font-size: 20px;
+            margin: 15px 10px 8px;
+        }
+
+        .product-card p {
+            font-size: 17px;
+            margin: 5px;
+        }
+
+        .product-description {
+            font-size: 15px !important;
+            line-height: 1.4;
+            padding: 0 10px;
+            min-height: 42px;
+        }
+
+        .product-order {
+            display: inline-block;
+            background-color: black;
+            color: #D4AF37;
+            padding: 9px 15px;
+            margin-top: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .product-order:hover {
+            background-color: #D4AF37;
+            color: black;
+        }
+
+        /* =========================
+           TABLET
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .navbar {
+                gap: 8px;
+                padding: 8px 12px;
+            }
+
+            .logo {
+                flex-basis: 130px;
+                width: 130px;
+                height: 52px;
+            }
+
+            .navbar ul {
+                gap: 0;
+            }
+
+            .navbar a {
+                padding: 8px 6px;
+                font-size: 16px;
+            }
+
+            .whatsapp-btn {
+                font-size: 13px;
+                padding: 9px 11px !important;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 20px;
+            }
+
+            .product-card img {
+                height: 300px;
+            }
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            .navbar {
+                border-radius: 20px;
+                padding: 10px 8px 12px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 5px;
+                overflow: visible;
+            }
+
+            .logo {
+                flex: none;
+                width: 130px;
+                height: 50px;
+                margin: 0 auto;
+            }
+
+            .navbar ul {
+                width: 100%;
+                flex: none;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                gap: 2px;
+                margin: 2px 0;
+            }
+
+            .navbar li {
+                flex: none;
+            }
+
+            .navbar a {
+                display: block;
+                padding: 7px 7px;
+                font-size: 15px;
+                white-space: nowrap;
+            }
+
+            .whatsapp-btn {
+                display: inline-block;
+                flex: none;
+                margin: 3px auto 0;
+                font-size: 14px;
+                padding: 9px 13px !important;
+            }
+
+            .hero {
+                height: 220px;
+                margin-top: 15px;
+                background-position: center;
+                background-size: cover;
+            }
+
+            .products {
+                padding: 30px 12px;
+            }
+
+            .products h2 {
+                font-size: 22px;
+                margin-bottom: 20px;
+            }
+
+            .product-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 15px;
+                width: 100%;
+            }
+
+            .product-card {
+                border-radius: 12px;
+            }
+
+            .product-card img {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 1 / 1;
+                object-fit: contain;
+            }
+
+            .product-card h3 {
+                font-size: 16px;
+                margin: 12px 5px 6px;
+            }
+
+            .product-card p {
+                font-size: 14px;
+                margin: 5px 3px;
+            }
+
+            .product-description {
+                font-size: 13px !important;
+                line-height: 1.35;
+                padding: 0 6px;
+                min-height: 50px;
+            }
+
+            .product-order {
+                font-size: 12px;
+                padding: 9px 7px;
+                margin-top: 8px;
+                max-width: calc(100% - 10px);
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            h2 {
+                font-size: 22px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+        }
+
+        /* =========================
+           VERY SMALL PHONES
+        ========================= */
+
+        @media (max-width: 380px) {
+
+            .navbar a {
+                font-size: 14px;
+                padding: 6px 5px;
+            }
+
+            .logo {
+                width: 115px;
+                height: 46px;
+            }
+
+            .whatsapp-btn {
+                font-size: 13px;
+                padding: 8px 11px !important;
+            }
+
+            .product-grid {
+                gap: 10px;
+            }
+
+            .product-card h3 {
+                font-size: 15px;
+            }
+
+            .product-description {
+                font-size: 12px !important;
+            }
+
+            .product-order {
+                font-size: 11px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <nav class="navbar">
+
+        <a href="home.html" class="logo">
+            <img src="logo SWAY.jpg" alt="SWAY Logo">
+        </a>
+
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="earrings.html">Earrings</a></li>
+            <li><a href="pins.html">Pins & Clips</a></li>
+            <li><a href="full sets.html">Full Sets</a></li>
+        </ul>
+
+        <a href="https://wa.me/923334554075?text=Hi%21%20I%27d%20like%20to%20place%20an%20order%20from%20SWAY."
+           class="whatsapp-btn"
+           target="_blank">
+            Order on WhatsApp
+        </a>
+
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="hero"></section>
+
+
+    <!-- =========================
+         PINS & CLIPS COLLECTION
+    ========================= -->
+
+    <section class="products">
+
+        <h2>Our Pins & Clips</h2>
+
+        <div class="product-grid">
+
+
+            <!-- EXISTING PRODUCTS -->
+
+
+            <div class="product-card">
+
+                <img src="Yellow Pins Set.jpeg"
+                     alt="Yellow Pins Cute 14 Piece Set">
+
+                <h3>Yellow Pins Cute 14 Piece Set</h3>
+
+                <p>Rs. 490</p>
+
+                <p class="product-description">
+                    A cute 14-piece yellow pin set for adding a playful touch to your everyday styling.
+                </p>
+
+                <a href="https://wa.me/923334554075?text=Hi%21%20I%27d%20like%20to%20order%20Yellow%20Pins%20Cute%2014%20Piece%20Set%20%28Rs.%20490%29."
+                   class="product-order"
+                   target="_blank">
+                    Order on WhatsApp
+                </a>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="Purple Pins Set.jpeg"
+                     alt="Purple Pins Cute 14 Piece Set">
+
+                <h3>Purple Pins Cute 14 Piece Set</h3>
+
+                <p>Rs. 490</p>
+
+                <p class="product-description">
+                    A cute 14-piece purple pin set that brings a soft and stylish touch to your look.
+                </p>
+
+                <a href="https://wa.me/923334554075?text=Hi%21%20I%27d%20like%20to%20order%20Purple%20Pins%20Cute%2014%20Piece%20Set%20%28Rs.%20490%29."
+                   class="product-order"
+                   target="_blank">
+                    Order on WhatsApp
+                </a>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="pi clip.jpg"
+                     alt="Pink Tulip Both Sides Hair Clip">
+
+                <h3>Pink Tulip Both Sides Hair Clip</h3>
+
+                <p>Rs. 300</p>
+
+                <p class="product-description">
+                    A charming tulip-inspired hair clip designed for a cute and stylish everyday look.
+                </p>
+
+                <a href="https://wa.me/923334554075?text=Hi%21%20I%27d%20like%20to%20order%20Pink%20Tulip%20Both%20Sides%20Hair%20Clip%20%28Rs.%20300%29."
+                   class="product-order"
+                   target="_blank">
+                    Order on WhatsApp
+                </a>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="pu clip.jpg"
+                     alt="Purple Tulip Both Sides Hair Clip">
+
+                <h3>Purple Tulip Both Sides Hair Clip</h3>
+
+                <p>Rs. 300</p>
+
+                <p class="product-description">
+                    A pretty purple tulip-inspired clip that adds a delicate touch to your hairstyle.
+                </p>
+
+                <a href="https://wa.me/923334554075?text=Hi%21%20I%27d%20like%20to%20order%20Purple%20Tulip%20Both%20Sides%20Hair%20Clip%20%28Rs.%20300%29."
+                   class="product-order"
+                   target="_blank">
+                    Order on WhatsApp
+                </a>
+
+            </div>
+
+
+            <!-- BATCH 1 -->
+
+
+            <div class="product-card">
+
+                <img src="scrunchie.jpeg"
+                     alt="Scrunchie">
+
+                <h3>Scrunchie</h3>
+
+                <p>Rs. 480 / Pack of 12</p>
+
+                <p class="product-description">
+                    A stylish and comfortable scrunchie for easy everyday hair styling.
+                </p>
+
+                <a href="https://wa.me/923334554075?text=Hi%21%20I%27d%20like%20to%20order%20Scrunchie."
+                   class="product-order"
+                   target="_blank">
+                    Order on WhatsApp
+                </a>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="scrunchie2.jpeg"
+                     alt="Scrunchie 2">
+
+                <h3>Scrunchie 2</h3>
+
+                <p>Rs. 480 / Pack of 12</p>
+
+                <p class="product-description">
+                    A simple and stylish scrunchie designed for comfortable everyday use.
+                </p>
+
+                <a href="https://wa.me/923334554075?text=Hi%21%20I%27d%20like%20to%20order%20Scrunchie%202."
+                   class="product-order"
+                   target="_blank">
+                    Order on WhatsApp
+                </a>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="tiny clips.jpeg"
+                     alt="Tiny Clips">
+
+                <h3>Tiny Clips</h3>
+
+                <p>Rs. 270</p>
+
+                <p class="product-description">
+                    Small and practical hair clips for neat and easy everyday styling.
+                </p>
+
+                <a href="https://wa.me/923334554075?text=Hi%21%20I%27d%20like%20to%20order%20Tiny%20Clips."
+                   class="product-order"
+                   target="_blank">
+                    Order on WhatsApp
+                </a>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="tulip clips.jpeg"
+                     alt="Tulip Clips">
+
+                <h3>Tulip Clips</h3>
+
+                <p>Rs. 300</p>
+
+                <p class="product-description">
+                    Cute tulip-inspired clips that add a delicate touch to your hairstyle.
+                </p>
+
+                <a href="https://wa.me/923334554075?text=Hi%21%20I%27d%20like%20to%20order%20Tulip%20Clips."
+                   class="product-order"
+                   target="_blank">
+                    Order on WhatsApp
+                </a>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="hijab pins.jpeg"
+                     alt="Hijab Pins">
+
+                <h3>Hijab Pins</h3>
+
+                <p>Rs </p>
+
+                <p class="product-description">
+                    Practical and stylish hijab pins designed for secure and comfortable styling.
+                </p>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="hair bands.jpeg"
+                     alt="Hair Bands">
+
+                <h3>Hair Bands</h3>
+
+                <p>Rs. 390</p>
+
+                <p class="product-description">
+                    Comfortable hair bands for easy and practical everyday hairstyles.
+                </p>
+
+                <a href="https://wa.me/923334554075?text=Hi%21%20I%27d%20like%20to%20order%20Hair%20Bands."
+                   class="product-order"
+                   target="_blank">
+                    Order on WhatsApp
+                </a>
+
+            </div>
+
+
+            <!-- BATCH 2 -->
+
+
+            <div class="product-card">
+
+                <img src="bow pins.jpeg"
+                     alt="Bow Pins">
+
+                <h3>Bow Pins</h3>
+
+                <p>SOLD OUT</p>
+
+                <p class="product-description">
+                    Elegant bow pins designed to add a neat and stylish touch to your look.
+                </p>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="multicolor catcher.jpeg"
+                     alt="Multicolor Catcher">
+
+                <h3>Multicolor Catcher</h3>
+
+                <p>Rs. 805 / Pack of 6</p>
+
+                <p class="product-description">
+                    A colorful and practical hair catcher for easy everyday styling.
+                </p>
+
+                <a href="https://wa.me/923334554075?text=Hi%21%20I%27d%20like%20to%20order%20Multicolor%20Catcher."
+                   class="product-order"
+                   target="_blank">
+                    Order on WhatsApp
+                </a>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="scrunchie3.jpeg"
+                     alt="Scrunchie 3">
+
+                <h3>Scrunchie 3</h3>
+
+                <p>Rs. 480 / Pack of 12</p>
+
+                <p class="product-description">
+                    A soft and stylish scrunchie for comfortable everyday hair styling.
+                </p>
+
+                <a href="https://wa.me/923334554075?text=Hi%21%20I%27d%20like%20to%20order%20Scrunchie%203."
+                   class="product-order"
+                   target="_blank">
+                    Order on WhatsApp
+                </a>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="soft hair bands.jpeg"
+                     alt="Soft Hair Bands">
+
+                <h3>Soft Hair Bands</h3>
+
+                <p>SOLD OUT</p>
+
+                <p class="product-description">
+                    Soft and comfortable hair bands for easy everyday hairstyles.
+                </p>
+
+                <a href="https://wa.me/923334554075?text=Hi%21%20I%27d%20like%20to%20order%20Soft%20Hair%20Bands."
+                   class="product-order"
+                   target="_blank">
+                    Order on WhatsApp
+                </a>
+
+            </div>
+
+
+
+
+            <div class="product-card">
+
+                <img src="bow hair band2.jpeg"
+                     alt="Bow Hair Band 2">
+
+                <h3>Bow Hair Band 2</h3>
+
+                <p>SOLD OUT</p>
+
+                <p class="product-description">
+                    A stylish bow hair band for a simple and elegant finishing touch.
+                </p>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="fancy catchers.jpeg"
+                     alt="Fancy Catchers">
+
+                <h3>Fancy Catchers</h3>
+
+                <p>Rs. 792 / Pack of 6</p>
+
+                <p class="product-description">
+                    Decorative hair catchers designed to add a polished touch to your hairstyle.
+                </p>
+
+                <a href="https://wa.me/923334554075?text=Hi%21%20I%27d%20like%20to%20order%20Fancy%20Catchers."
+                   class="product-order"
+                   target="_blank">
+                    Order on WhatsApp
+                </a>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="catcher.jpeg"
+                     alt="Catcher">
+
+                <h3>Catcher</h3>
+
+                <p>Rs. 1368 / Pack of 6</p>
+
+                <p class="product-description">
+                    A practical and stylish hair catcher for easy everyday styling.
+                </p>
+
+                <a href="https://wa.me/923334554075?text=Hi%21%20I%27d%20like%20to%20order%20Catcher."
+                   class="product-order"
+                   target="_blank">
+                    Order on WhatsApp
+                </a>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="catcher2.jpeg"
+                     alt="Catcher 2">
+
+                <h3>Catcher 2</h3>
+
+                <p>Rs. 1368 / Pack of 6</p>
+
+                <p class="product-description">
+                    A simple and stylish hair catcher for comfortable everyday use.
+                </p>
+
+                <a href="https://wa.me/923334554075?text=Hi%21%20I%27d%20like%20to%20order%20Catcher%202."
+                   class="product-order"
+                   target="_blank">
+                    Order on WhatsApp
+                </a>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="clips 110.jpeg"
+                     alt="Clips 110">
+
+                <h3>Clips 110</h3>
+
+                <p>Rs. 878</p>
+
+                <p class="product-description">
+                    Stylish hair clips designed for easy and secure everyday styling.
+                </p>
+
+                <a href="https://wa.me/923334554075?text=Hi%21%20I%27d%20like%20to%20order%20Clips%20110."
+                   class="product-order"
+                   target="_blank">
+                    Order on WhatsApp
+                </a>
+
+            </div>
+
+
+            <!-- BATCH 3 -->
+
+
+            <div class="product-card">
+
+                <img src="bow headband.jpeg"
+                     alt="Bow Headband">
+
+                <h3>Bow Headband</h3>
+
+                <p>SOLD OUT</p>
+
+                <p class="product-description">
+                    A stylish bow headband designed to add a neat and charming touch to your hairstyle.
+                </p>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="Hijab pins2.jpeg"
+                     alt="Hijab Pins 2">
+
+                <h3>Hijab Pins 2</h3>
+
+                <p>Rs. 710 / Full Pack</p>
+
+                <p class="product-description">
+                    Practical and stylish hijab pins designed for secure and comfortable styling.
+                </p>
+
+                <a href="https://wa.me/923334554075?text=Hi%21%20I%27d%20like%20to%20order%20Hijab%20Pins%202."
+                   class="product-order"
+                   target="_blank">
+                    Order on WhatsApp
+                </a>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="pins,catcher,bands set.jpeg"
+                     alt="Pins, Catcher, Bands Set">
+
+                <h3>Pins, Catcher, Bands Set</h3>
+
+                <p>SOLD OUT</p>
+
+                <p class="product-description">
+                    A convenient set combining pins, a catcher, and bands for easy everyday styling.
+                </p>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="Pins set.jpeg"
+                     alt="Pins Set">
+
+                <h3>Pins Set</h3>
+
+                <p>Rs. 490</p>
+
+                <p class="product-description">
+                    A versatile pin set for adding a simple and stylish touch to your everyday look.
+                </p>
+
+                <a href="https://wa.me/923334554075?text=Hi%21%20I%27d%20like%20to%20order%20Pins%20Set."
+                   class="product-order"
+                   target="_blank">
+                    Order on WhatsApp
+                </a>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="catcher4.jpeg"
+                     alt="Catcher 4">
+
+                <h3>Catcher 4</h3>
+
+                <p>Rs. 805 / Pack of 6</p>
+
+                <p class="product-description">
+                    A stylish hair catcher designed for easy and comfortable everyday styling.
+                </p>
+
+                <a href="https://wa.me/923334554075?text=Hi%21%20I%27d%20like%20to%20order%20Catcher%204."
+                   class="product-order"
+                   target="_blank">
+                    Order on WhatsApp
+                </a>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="small clips.jpeg"
+                     alt="Small Clips">
+
+                <h3>Small Clips</h3>
+
+                <p>Rs. 270</p>
+
+                <p class="product-description">
+                    Small and practical clips for neat and easy everyday hairstyles.
+                </p>
+
+                <a href="https://wa.me/923334554075?text=Hi%21%20I%27d%20like%20to%20order%20Small%20Clips."
+                   class="product-order"
+                   target="_blank">
+                    Order on WhatsApp
+                </a>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="raisin catcher.jpeg"
+                     alt="Raisin Catcher">
+
+                <h3>Raisin Catcher</h3>
+
+                <p>Rs. 648 / Pack of 6+</p>
+
+                <p class="product-description">
+                    A stylish hair catcher designed to add a simple finishing touch to your hairstyle.
+                </p>
+
+                <a href="https://wa.me/923334554075?text=Hi%21%20I%27d%20like%20to%20order%20Raisin%20Catcher."
+                   class="product-order"
+                   target="_blank">
+                    Order on WhatsApp
+                </a>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="simple catchers.jpeg"
+                     alt="Simple Catchers">
+
+                <h3>Simple Catchers</h3>
+
+                <p>Rs. 416 / Pack of 6</p>
+
+                <p class="product-description">
+                    Simple and practical hair catchers for comfortable everyday styling.
+                </p>
+
+                <a href="https://wa.me/923334554075?text=Hi%21%20I%27d%20like%20to%20order%20Simple%20Catchers."
+                   class="product-order"
+                   target="_blank">
+                    Order on WhatsApp
+                </a>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="transparent catchers.jpeg"
+                     alt="Transparent Catchers">
+
+                <h3>Transparent Catchers</h3>
+
+                <p>Rs. 648 / Pack of 6+</p>
+
+                <p class="product-description">
+                    Clear and versatile hair catchers that blend easily with different hairstyles.
+                </p>
+
+                <a href="https://wa.me/923334554075?text=Hi%21%20I%27d%20like%20to%20order%20Transparent%20Catchers."
+                   class="product-order"
+                   target="_blank">
+                    Order on WhatsApp
+                </a>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="star catchers.jpeg"
+                     alt="Star Catchers">
+
+                <h3>Star Catchers</h3>
+
+                <p>Rs. 805 / Pack of 6</p>
+
+                <p class="product-description">
+                    Star-shaped hair catchers that add a fun and stylish touch to your hairstyle.
+                </p>
+
+                <a href="https://wa.me/923334554075?text=Hi%21%20I%27d%20like%20to%20order%20Star%20Catchers."
+                   class="product-order"
+                   target="_blank">
+                    Order on WhatsApp
+                </a>
+
+            </div>
+
+
+            <!-- BATCH 4 -->
+
+
+            <div class="product-card">
+
+                <img src="lustrous catcher.jpeg"
+                     alt="Lustrous Catcher">
+
+                <h3>Lustrous Catcher</h3>
+
+                <p>Rs. 792 / Pack of 6</p>
+
+                <p class="product-description">
+                    A lustrous hair catcher designed to add a polished and elegant touch to your hairstyle.
+                </p>
+
+                <a href="https://wa.me/923334554075?text=Hi%21%20I%27d%20like%20to%20order%20Lustrous%20Catcher."
+                   class="product-order"
+                   target="_blank">
+                    Order on WhatsApp
+                </a>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="long clips.jpeg"
+                     alt="Long Clips">
+
+                <h3>Long Clips</h3>
+
+                <p>Rs. 878</p>
+
+                <p class="product-description">
+                    Stylish long hair clips designed for neat and comfortable everyday styling.
+                </p>
+
+                <a href="https://wa.me/923334554075?text=Hi%21%20I%27d%20like%20to%20order%20Long%20Clips."
+                   class="product-order"
+                   target="_blank">
+                    Order on WhatsApp
+                </a>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="round catchers.jpeg"
+                     alt="Round Catchers">
+
+                <h3>Round Catchers</h3>
+
+                <p>Rs. 805 / Pack of 6</p>
+
+                <p class="product-description">
+                    Round-shaped hair catchers for simple, secure, and stylish everyday hairstyles.
+                </p>
+
+                <a href="https://wa.me/923334554075?text=Hi%21%20I%27d%20like%20to%20order%20Round%20Catchers."
+                   class="product-order"
+                   target="_blank">
+                    Order on WhatsApp
+                </a>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="flower catchers.jpeg"
+                     alt="Flower Catchers">
+
+                <h3>Flower Catchers</h3>
+
+                <p>Rs. 822 / Pack of 10</p>
+
+                <p class="product-description">
+                    Flower-shaped hair catchers that add a charming decorative touch to your hairstyle.
+                </p>
+
+                <a href="https://wa.me/923334554075?text=Hi%21%20I%27d%20like%20to%20order%20Flower%20Catchers."
+                   class="product-order"
+                   target="_blank">
+                    Order on WhatsApp
+                </a>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="fancy hijab pins.jpeg"
+                     alt="Fancy Hijab Pins">
+
+                <h3>Fancy Hijab Pins</h3>
+
+                <p>Rs. 710 / Full Pack</p>
+
+                <p class="product-description">
+                    Decorative hijab pins designed to add a stylish finishing touch to your look.
+                </p>
+
+                <a href="https://wa.me/923334554075?text=Hi%21%20I%27d%20like%20to%20order%20Fancy%20Hijab%20Pins."
+                   class="product-order"
+                   target="_blank">
+                    Order on WhatsApp
+                </a>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="3 flower pins.jpeg"
+                     alt="3 Flower Pins">
+
+                <h3>3 Flower Pins</h3>
+
+                <p>Rs. 245 / Piece</p>
+
+                <p class="product-description">
+                    A set of three flower pins for adding a charming and stylish touch to your look.
+                </p>
+
+                <a href="https://wa.me/923334554075?text=Hi%21%20I%27d%20like%20to%20order%203%20Flower%20Pins."
+                   class="product-order"
+                   target="_blank">
+                    Order on WhatsApp
+                </a>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="Hair tie Set.jpeg"
+                     alt="Hair Tie Set">
+
+                <h3>Hair Tie Set</h3>
+
+                <p>Rs. 265</p>
+
+                <p class="product-description">
+                    A versatile set of hair ties for simple and convenient everyday styling.
+                </p>
+
+                <a href="https://wa.me/923334554075?text=Hi%21%20I%27d%20like%20to%20order%20Hair%20Tie%20Set."
+                   class="product-order"
+                   target="_blank">
+                    Order on WhatsApp
+                </a>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="basket hair accessory set.jpeg"
+                     alt="Basket Hair Accessory Set">
+
+                <h3>Basket Hair Accessory Set</h3>
+
+                <p>Rs. 420</p>
+
+                <p class="product-description">
+                    A versatile hair accessory set arranged in a charming basket-style design.
+                </p>
+
+                <a href="https://wa.me/923334554075?text=Hi%21%20I%27d%20like%20to%20order%20Basket%20Hair%20Accessory%20Set."
+                   class="product-order"
+                   target="_blank">
+                    Order on WhatsApp
+                </a>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="Double color flower catchers.jpeg"
+                     alt="Double Color Flower Catchers">
+
+                <h3>Double Color Flower Catchers</h3>
+
+                <p>Rs. 822 / Pack of 6</p>
+
+                <p class="product-description">
+                    Flower-shaped catchers featuring two colors for a stylish and decorative look.
+                </p>
+
+                <a href="https://wa.me/923334554075?text=Hi%21%20I%27d%20like%20to%20order%20Double%20Color%20Flower%20Catchers."
+                   class="product-order"
+                   target="_blank">
+                    Order on WhatsApp
+                </a>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="kids hair tie set.jpeg"
+                     alt="Kids Hair Tie Set">
+
+                <h3>Kids Hair Tie Set</h3>
+
+                <p>Rs. 400 / Pack</p>
+
+                <p class="product-description">
+                    A fun and practical set of hair ties designed for easy everyday styling.
+                </p>
+
+                <a href="https://wa.me/923334554075?text=Hi%21%20I%27d%20like%20to%20order%20Kids%20Hair%20Tie%20Set."
+                   class="product-order"
+                   target="_blank">
+                    Order on WhatsApp
+                </a>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="fancy bow clips.jpeg"
+                     alt="Fancy Bow Clips">
+
+                <h3>Fancy Bow Clips</h3>
+
+                <p>Rs. 305 / Piece</p>
+
+                <p class="product-description">
+                    Elegant bow clips designed to add a polished touch to your hairstyle.
+                </p>
+
+                <a href="https://wa.me/923334554075?text=Hi%21%20I%27d%20like%20to%20order%20Fancy%20Bow%20Clips."
+                   class="product-order"
+                   target="_blank">
+                    Order on WhatsApp
+                </a>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <img src="fancy flower clips.jpeg"
+                     alt="Fancy Flower Clips">
+
+                <h3>Fancy Flower Clips</h3>
+
+                <p>Rs. 305 / Piece</p>
+
+                <p class="product-description">
+                    Elegant flower clips designed to add a charming finishing touch to your hairstyle.
+                </p>
+
+                <a href="https://wa.me/923334554075?text=Hi%21%20I%27d%20like%20to%20order%20Fancy%20Flower%20Clips."
+                   class="product-order"
+                   target="_blank">
+                    Order on WhatsApp
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+</body>
+
+</html>
